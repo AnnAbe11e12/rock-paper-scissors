@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice(){
+            let randy = Math.random()*3;
+            if(randy<1){
+                return "rock"
+            }else if(randy>=1 && randy<2){
+                return "paper"
+            }else if(randy>=2){
+                return "scissors"
+            }
+        }
+       
+        function playRound(playerSelection, computerSelection){
+            playerSelection=playerSelection.toLowerCase()
+            if(playerSelection==computerSelection){
+                return "tie!"
+            }else if((playerSelection=='rock' && computerSelection=='paper')||(playerSelection=='paper'&&computerSelection=='scissors')||(playerSelection=='scissors'&&computerSelection=='rock')){
+                return "you lose! "+computerSelection + " beats "+playerSelection;
+            }else{
+                return "you win! "+playerSelection + " beats "+computerSelection;
+            }
+
+        }
+        console.log(playRound('scissors',getComputerChoice()))
+        
+        function game(){
+            for(i=0;i<5;i++){
+                let userInput = prompt('choose your weapon')
+                alert(playRound(userInput, getComputerChoice()))
+            }
+        }
+        game()
+   </script>
+
+</body>
+</html>
